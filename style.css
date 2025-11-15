@@ -40,7 +40,7 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain;  }
+      object-fit: cover;  }
 
     .stack-container img[src*="Hand"] {
       display: none;
@@ -84,3 +84,4 @@ body {
       background: purple;
       transition: height 0.1s;
     }
+
