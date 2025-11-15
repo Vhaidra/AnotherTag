@@ -123,8 +123,6 @@ OOOOOOOOooooooOOOoOooooooooooOooooOOoOoooooooooOOOoooO8Oooooooo::::oooooo:::::::
 
     const handImages = ["01Hand.png", "02Hand.png", "03Hand.png", "04Hand.png"];
     
-    document.getElementById("tapZone").addEventListener("click", handleBarIncrease);
-    
     function submitCode() {
       const codeInput = document.getElementById("codeInput").value.trim().toUpperCase();
       const message = document.getElementById("codeMessage");
@@ -246,6 +244,17 @@ document.getElementById("infoBtn").addEventListener("click", () => {
   document.getElementById("popupMessage").style.display = "block";
 });
 
+document.getElementById("container").addEventListener("click", () => {
+  if (!gameStarted) return;
+
+  barValue = Math.min(100, barValue + increment);
+  barFill.style.height = barValue + "%";
+  progressDiv.textContent = `Barra: ${Math.round(barValue)}%`;
+
+  if (barValue >= 100) {
+    endGame(true);
+  }
+});
 
   </script>
   <!-- Popup Modal -->
