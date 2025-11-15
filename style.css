@@ -1,86 +1,192 @@
 body {
-  font-family: 'Courier New', monospace;
-  font-size: 18px;
-  text-align: center;
-  background-color: black;
-  color: #ffccff;
-}
-
-    #introText {
-      font-size: 18px;
-      margin: 20px auto;
-      max-width: 800px;
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    text-align: center;
+    background-color: black;
+    color: #ffccff;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  
+  #introText {
+    font-size: 18px;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 10px;
+  }
+  
+  #asciiArt {
+    font-family: monospace !important;
+    color: white;
+    white-space: pre;
+    text-align: center;
+    margin-top: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  #asciiMessage {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    color: #ffccff;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  #esterno {
+    aspect-ratio: 480 / 270;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+  }
+  
+  .stack-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .stack-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .stack-container img[src*="Hand"] {
+    display: none;
+  }
+  
+  .stack-container img[src*="Heart"] {
+    display: none;
+  }
+  
+  #container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #startBtn,
+  #infoBtn,
+  #codeBtn,
+  #popupMessage button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: #ffccff;
+    color: #000;
+  }
+  
+  .button-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  #progress {
+    font-size: 22px;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+  
+  #timer {
+    margin-top: 8px;
+  }
+  
+  #barContainer {
+    width: 40px;
+    height: 100%;
+    background: #333;
+    border-radius: 12px;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  #barFill {
+    width: 100%;
+    height: 0%;
+    background: purple;
+    transition: height 0.1s;
+  }
+  
+  /* Popup */
+  #popupMessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    padding: 20px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    z-index: 9999;
+    max-width: 90%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  /* Code input */
+  #codeBox {
+    margin-top: 20px;
+  }
+  
+  #codeInput {
+    padding: 8px;
+    font-size: 16px;
+    max-width: 90%;
+  }
+  
+  /* MOBILE: schermi piccoli */
+  @media (max-width: 600px) {
+    body {
+      font-size: 16px;
       padding: 10px;
     }
-    #asciiArt {
-  font-family: monospace !important;
-  color: white;
-  white-space: pre;
-  text-align: center;
-  margin-top: 20px;
-}
-
-    #esterno {
-      aspect-ratio: 480 / 270;
-      width: 100%;
-      max-height: 90vh;
-      margin: 0 auto;
-      display: flex;
-    }
-
-    .stack-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .stack-container img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;  }
-
-    .stack-container img[src*="Hand"] {
-      display: none;
-    }
-    .stack-container img[src*="Heart"] {
-  display: none;
-}
-
-    #container {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    #startBtn {
-      padding: 10px 20px;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
+  
     #progress {
-      font-size: 25px;
-      margin-top: 20px;
+      font-size: 18px;
     }
-
+  
+    #esterno {
+      max-width: 100%;
+      max-height: 60vh;
+    }
+  
     #barContainer {
-      width: 40px;
-      height: 100%;
-      background: #ccc;
-      border-radius: 12px;
-      margin: 0;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
+      width: 28px;
     }
-
-    #barFill {
-      width: 100%;
-      height: 0%;
-      background: purple;
-      transition: height 0.1s;
+  
+    #popupMessage {
+      max-width: 95%;
+      font-size: 14px;
+      padding: 16px;
     }
+  
+    #asciiArt {
+      font-size: 10px;
+      max-height: 40vh;
+      overflow-y: auto;
+    }
+  
+    #startBtn,
+    #infoBtn {
+      flex: 1 1 130px;
+      font-size: 16px;
+    }
+  }
+  
