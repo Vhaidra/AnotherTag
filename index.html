@@ -244,7 +244,8 @@ document.getElementById("infoBtn").addEventListener("click", () => {
   document.getElementById("popupMessage").style.display = "block";
 });
 
-document.getElementById("container").addEventListener("click", () => {
+// Reuse the spacebar press logic
+function handleSpacebarAction() {
   if (!gameStarted) return;
 
   barValue = Math.min(100, barValue + increment);
@@ -254,6 +255,16 @@ document.getElementById("container").addEventListener("click", () => {
   if (barValue >= 100) {
     endGame(true);
   }
+}
+
+// Trigger the spacebar logic on mobile taps on #esterno
+const esterno = document.getElementById("esterno");
+
+// For mobile: tap and touch support
+esterno.addEventListener("click", handleSpacebarAction);
+esterno.addEventListener("touchstart", (e) => {
+  e.preventDefault(); // Prevent double events or scrolling
+  handleSpacebarAction();
 });
 
   </script>
